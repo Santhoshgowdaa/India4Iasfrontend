@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>India4IAS</title>
+</head>
+
+<body>
+
+    <app-common-header></app-common-header>
+
+    <main id="main" data-aos="fade-up">
+
+
+        <!-- ======= Breadcrumbs ======= -->
+        <div class="fluid-container">
+            <div class="currentaffairs">
+                <div class="currentaffairs1">Daily Current Affairs</div>
+                <small><a>Home</a> | <a>Daily Current Affairs</a></small>
+            </div>
+        </div>
+        <div class="clearfix">&nbsp;</div>
+        <div *ngIf="!dateContent" class="container">
+            <h2 style="color:#16b6e3">
+                <strong>{{description}}</strong>
+            </h2>
+            <div class="row">
+                <div class="tags col-md-7 col-xs-12 midcontent">
+                    <ul class="pl-0">
+                        Tags:
+                        <li class="d-inline-block p-1" *ngFor="let subCategory of tags?.split(',')">
+                            <a class="tag-list" (click)="onSearchByTag(subCategory)">{{subCategory}}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-xs-12">
+                    <button class="btn m-1 prev-next border-secondary" [ngClass]="{'disabled': disablePrevBtn}"
+                        (click)="navigateCurrentAffairsById('prev')"><i class="fas fa-less-than text-secondary"></i>
+                    </button>
+                    <button class="btn prev-next border-secondary" [ngClass]="{'disabled': disableNextBtn}"
+                        (click)="navigateCurrentAffairsById('next')"> <i class="fas fa-greater-than text-secondary"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8 col-xs-12 midcontent img-landing" [innerHtml]='content'>
+                    {{content}}
+                    <div class="clearfix">&nbsp;</div>
+                </div>
+                <!-- <button class="btn" (click) = "downloadCA()">Download</button> -->
+                <div class="col-md-4 col-xs-12">
+                    <app-common-cards></app-common-cards>
+                </div>
+
+            </div>
+        </div>
+        <div *ngIf="dateContent" class="container">
+            <div class="row">
+                <div class="col-md-8 col-xs-12">
+                    <div class="float-end">
+                        <button class="btn m-1 prev-next border-secondary" [ngClass]="{'disabled': disablePrevBtn}"
+                            (click)="navigateCurrentAffairsByDate('pre')"><i
+                                class="fas fa-less-than text-secondary"></i>
+                        </button>
+                        <button class="btn prev-next border-secondary" [ngClass]="{'disabled': disableNextBtn}"
+                            (click)="navigateCurrentAffairsByDate('next')"> <i
+                                class="fas fa-greater-than text-secondary"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8 col-xs-12">
+                    <div *ngFor="let data of dateAndTypeList; let i=index">
+                        <h2 style="color:#16b6e3">
+                            <strong>{{data.description}}</strong>
+                        </h2>
+                        <div class="tags midcontent">
+                            <ul class="pl-0">
+                                Tags:
+                                <li class="d-inline-block p-1" *ngFor="let subCategory of data.tags?.split(',')">
+                                    <a class="tag-list" (click)="onSearchByTag(subCategory)">{{subCategory}}</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="midcontent img-landing" [innerHtml]='data.content'>
+                            {{data.content}}
+                            <div class="clearfix">&nbsp;</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <button class="btn" (click) = "downloadCA()">Download</button> -->
+                <div class="col-md-4 col-xs-12">
+                    <app-common-cards></app-common-cards>
+                </div>
+            </div>
+        </div>
+
+    </main><!-- End #main -->
+    <app-common-footer></app-common-footer>
+
+</body>
+
+</html>

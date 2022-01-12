@@ -1,0 +1,35 @@
+a {
+  color: #16b6e3 !important;
+  cursor: pointer !important;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  color: #444444 !important;
+}
+
+.cards {
+  padding: 1rem !important;
+  height: 14rem !important;
+}
+
+.midcontent .card.rightsec {
+  margin-bottom: 20px;
+  /* background: linear-gradient(to bottom, #16b6e3, #1f274c); */
+}
+
+.card-name {
+  display: -webkit-box;
+    max-width: 100%;
+    height: 45px;
+    margin: 0 auto;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 500;
+    /* color: #fff; */
+}
+/* .midcontent .card .text-secondary{
+  color: #fff !important;
+} */

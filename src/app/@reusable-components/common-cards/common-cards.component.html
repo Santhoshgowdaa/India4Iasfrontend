@@ -1,0 +1,96 @@
+<div class="card rightsec" style="width: 100%;">
+    <div class="dailynews">
+        <div class="vline"></div>Recent Daily News
+    </div>
+    <ul class="listrtsec">
+        <li *ngFor="let data of dateList" class=""><a
+                (click)="redirect_view_withIdAndType(data.currentAffairsDate, 'CA')">{{data.currentAffairsDate}} <span
+                    class="fas fa-chevron-right float-end"></span></a>
+        </li>
+        <li *ngFor="let data of importantEditorialsList" class=""><a
+                (click)="redirect_view(data.id, data.categoryType)">{{data.description}} <span
+                    class="fas fa-chevron-right float-end"></span></a>
+        </li>
+    </ul>
+</div>
+<div class="clearfix">&nbsp;</div>
+<div class="card rightsec" style="width: 100%;">
+    <div class="dailynews">
+        <div class="vline"></div>Archives by Date
+    </div>
+    <ul class="listrtsec">
+        <form #myForm="ngForm" novalidate>
+            <my-date-picker name="toArchiveDate" [options]="myDatePickerOptions" placeholder="From Date"
+                [(ngModel)]="fromArchiveDate" required (dateChanged)="fromArchiveDateChange($event)">
+            </my-date-picker>
+        </form>
+        <div class="clearfix">&nbsp;</div>
+        <form #myForm="ngForm" novalidate>
+            <my-date-picker name="toArchiveDate" [options]="myDatePickerOptions" placeholder="To Date"
+                [(ngModel)]="toArchiveDate" required (dateChanged)="toArchiveDateChange($event)">
+            </my-date-picker>
+        </form>
+        <p *ngIf="errorMsg" class="text-danger">{{errorMsg}}</p>
+        <div class="clearfix">&nbsp;</div>
+        <button class="form-control bgbtn" (click)="onSearchByArchives()">Search</button>
+    </ul>
+</div>
+<div class="clearfix">&nbsp;</div>
+<!-- <div class="card rightsec" style="width: 100%;">
+    <div class="dailynews">
+      <div class="vline"></div>What's New
+    </div>
+    <ul class="listrtsec">
+      <li class=""><a></a>
+      </li>
+    </ul>
+  </div>
+  <div class="clearfix">&nbsp;</div> -->
+<div class="card rightsec scroller" style="width: 100%;">
+    <div class="dailynews">
+        <div class="vline"></div>Recent Videos
+    </div>
+    <ul class="listrtsec">
+
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-touch="false"
+            data-bs-interval="false">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <li>
+                        <iframe [src]='safeUrl' frameborder='0' allowfullscreen width="420" height="170"></iframe>
+                    </li>
+                </div>
+                <div class="carousel-item">
+                    <li>
+                        <iframe width="420" height="170" src="https://www.youtube.com/embed/pCIL_K5jaxw" frameborder="0"
+                            allowfullscreen></iframe>
+                    </li>
+                </div>
+                <div class="carousel-item">
+                    <li>
+                        <iframe width="420" height="170" src="https://www.youtube.com/embed/YZhPZaLhT9c" frameborder="0"
+                            allowfullscreen></iframe>
+                    </li>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </ul>
+</div>

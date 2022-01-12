@@ -1,0 +1,17 @@
+.blu:hover {
+  background: red !important;
+}
+
+.cust-btn {
+  border-radius: 100%;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+button.bg-primary:hover, button.bg-primary:focus {
+  background-color: #16b6e3 !important;
+}
+
+.bg-selected {
+  background-color: #dddfeb;
+}

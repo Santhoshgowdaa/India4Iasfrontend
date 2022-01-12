@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>India4IAS</title>
+</head>
+
+<body>
+
+  <app-common-header></app-common-header>
+
+  <main id="main" data-aos="fade-up">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="fluid-container">
+      <div class="currentaffairs">
+        <div class="currentaffairs1">Daily Current Affairs</div>
+        <small><a>Home</a> | <a>Daily Current Affairs</a></small>
+      </div>
+    </div>
+    <div class="clearfix">&nbsp;</div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-xs-12 midcontent">
+          <p>
+            <strong>Current Affairs</strong> play an important role in<strong> UPSC Civil Services Exam</strong> preparation as the
+            questions from this section appear in all the stages of the examination- <strong>Prelims, Mains and in the
+            Interview.</strong><br>
+            We cover<strong> Daily News</strong> by choosing the most relevant topics from a number of newspapers like <strong>THE HINDU,
+            LIVEMINT, THE INDIAN EXPRESS</strong> etc. plus a variety of national and international news websites like <strong>DOWN TO
+            EARTH, PIB, BBC,CNN.</strong><br>
+            For <strong>Important Editorials</strong> we focus on very trustworthy sources like <strong>THE HINDU, THE INDIAN EXPRESS & LIVEMINT</strong>
+            - for our daily cover.<br>
+            <strong>Kindly note</strong>: Daily News and Important Editorials are not <strong>covered on Sundays and national holidays</strong>, though we
+            may cover any missed topics of importance in the following weekdays.
+          </p>
+
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6 col-xs-12">
+                <div class="card rightsec medsec" style="width: 100%;">
+                  <div class="dailynewsleft text-dark">
+                    <!-- <i class="far fa-newspaper pr-1"></i> -->
+                    Daily News</div>
+                  <ul class="dailynewssec">
+                    <li *ngFor="let data of dateList" class=""><a
+                        (click)="redirect_view_withIdAndType(data.currentAffairsDate, 'CA')">{{data.currentAffairsDate}}
+                        <span class="fas fa-chevron-right float-end"></span></a>
+                    </li>
+                  </ul>
+                  <ul class="dailynewssec">
+                    <li class="">
+                      <label>To view old news, please select date below</label>
+                      <form #myForm="ngForm" novalidate>
+                        <my-date-picker name="mydate" [options]="myDatePickerOptions" [(ngModel)]="date" required
+                          (dateChanged)="onDateChanged($event)">
+                        </my-date-picker>
+                      </form>
+                      <div class="clearfix">&nbsp;</div>
+                      <button class="form-control bgbtn" (click)="onSearchOldNews() ">Search</button>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="col-md-6 col-xs-12">
+                <div class="card rightsec medsec" style="width: 100%;">
+                  <div class="dailynewsleft text-dark">Important Editorials</div>
+                  <ul class="dailynewssec">
+                    <li class="" *ngFor="let data of importantEditorialsList"><a
+                        (click)="redirect_view(data.id, data.categoryType)">{{data.description}}<span
+                          class="fas fa-chevron-right float-end"></span></a>
+                    </li>
+                  </ul>
+                  <ul class="dailynewssec">
+                    <li class="">
+                      <label>To view old news, please select date below</label>
+                      <form #myForm="ngForm" novalidate>
+                        <my-date-picker name="mydateIE" [options]="myDatePickerOptions" [(ngModel)]="dateIE" required
+                          (dateChanged)="onDateChange($event)">
+                        </my-date-picker>
+                      </form>
+                      <div class="clearfix">&nbsp;</div>
+                      <button class="form-control bgbtn" (click)="onSearchOldNewsForIE() ">Search</button>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="clearfix">&nbsp;</div>
+
+        </div>
+        <div class="col-md-4 col-xs-12">
+          <app-common-cards></app-common-cards>
+        </div>
+
+      </div>
+    </div>
+
+  </main><!-- End #main -->
+  <app-common-footer></app-common-footer>
+</body>
+
+</html>

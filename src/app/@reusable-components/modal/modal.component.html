@@ -1,0 +1,20 @@
+<ng-template #modal1>
+    <!-- Header -->
+    <div class="modal-header px-3 py-2" [ngClass]="headerBgColor">
+      <h5 class="modal-title " id="exampleModalLabel">
+        <ng-content select="[header]"></ng-content>
+      </h5>
+      <button
+        type="button"
+        class="btn-close radius-5"
+        data-bs-dismiss="modal"
+        (click)="close()"
+        aria-label="Close"  [ngClass]="buttonColor"
+      ></button>
+    </div>
+    <!-- Body -->
+    <div class="modal-body">
+      <ng-content select="[body]"></ng-content>
+    </div>
+  </ng-template>
+  
